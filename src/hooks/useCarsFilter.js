@@ -5,40 +5,56 @@ import { useState, useMemo, useEffect } from "react";
 
 function useCarsFilter() {
 
+    // Dati delle auto dal contesto globale
     const { cars } = useGlobalContext();
 
-    // Stato locale per la ricerca live
-    const [search, setSearch] = useState('');
-
-    // Stato locale per la ricerca debounced dopo un delay di 300ms
+    // Stati per: ricerca, ricerca debounced e categoria
+    const [search, setSearch] = useState("");
     const [debouncedSearch, setDebouncedSearch] = useState(search);
+    const [category, setCategory] = useState("");
 
 
-    // Aggiorna debouncedSearch solo 300ms dopo che l'utente inizia a scrivere 
+
+    // Debounced Search: delay 300ms
     useEffect(() => {
 
-        const handler = setTimeout(() =>
-
-            setDebouncedSearch(search), 300);
-
-        return () => clearTimeout(handler);
+        const timer = setTimeout(() => setDebouncedSearch(search), 300);
+        return () => clearTimeout(timer);
 
     }, [search]);
 
-    // Ricalcola solo quando cambiano debouncedSearch o cars
+
+
+    // Filtro per titolo & categoria
     const filteredCars = useMemo(() => {
 
-        return cars.filter(car =>
-            car.title.toLowerCase().includes(debouncedSearch.toLowerCase()
-            ))
+        return cars.filter(car => {
+            const carsByTitle = car.title.toLowerCase().includes(debouncedSearch.toLowerCase());
+            const carsByCategory = category ? car.category === category : cars;
+            return carsByTitle && carsByCategory;
+        })
 
-    }, [debouncedSearch, cars]);
+    }, [debouncedSearch, category, cars]);
+
+
+
+    // Gestione delle categorie, crea un array di categorie uniche (Set)
+    const categories = useMemo(() => {
+        // Set restituisce solo valori unici ottenuti dal map,
+        // lo spread lo trasforma in un array
+        return [...new Set(cars.map(car => car.category))];
+    }, [cars]);
+
 
 
     return {
+
         filteredCars,
         search,
-        setSearch
+        setSearch,
+        category,
+        setCategory,
+        categories
     }
 
 }
