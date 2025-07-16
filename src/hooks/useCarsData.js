@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 
-function useCars() {
+function useCarsData() {
 
     const [cars, setCars] = useState([]);
 
@@ -30,4 +30,4 @@ function useCars() {
 
 }
 
-export default useCars;
+export default useCarsData;

@@ -2,7 +2,7 @@
 import { createContext, useContext } from "react";
 
 // Componenti
-import useCars from "../hooks/useCars";
+import useCarsData from "../hooks/useCarsData";
 
 // Creazione del contesto globale
 const GlobalContext = createContext();
@@ -10,7 +10,7 @@ const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
 
-    const carsData = useCars()
+    const carsData = useCarsData()
 
     return (
         <GlobalContext.Provider value={{ ...carsData }}>
