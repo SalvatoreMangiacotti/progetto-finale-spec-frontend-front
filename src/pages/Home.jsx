@@ -1,16 +1,20 @@
 // Hooks
-import { useGlobalContext } from "../context/GlobalContext";
+import useCarsFilter from "../hooks/useCarsFilter";
 
 // Componenti
 import CarsList from "../components/CarsList";
+import SearchBar from "../components/SearchBar";
 
 
 function Home() {
 
-    const { cars } = useGlobalContext();
+    const { filteredCars, search, setSearch } = useCarsFilter();
 
     return (
-        <CarsList cars={cars} />
+        <>
+            <SearchBar search={search} setSearch={setSearch} />
+            <CarsList cars={filteredCars} />
+        </>
     )
 
 }
