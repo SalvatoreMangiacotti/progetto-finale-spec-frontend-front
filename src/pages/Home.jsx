@@ -5,6 +5,7 @@ import useCarsFilter from "../hooks/useCarsFilter";
 import CarsList from "../components/CarsList";
 import SearchBar from "../components/SearchBar";
 import CategorySelect from "../components/CategorySelect";
+import OrderSelect from "../components/OrderSelect";
 
 
 function Home() {
@@ -16,7 +17,9 @@ function Home() {
         setSearch,
         category,
         setCategory,
-        categories
+        categories,
+        setSortBy,
+        setSortOrder
 
     } = useCarsFilter();
 
@@ -31,6 +34,11 @@ function Home() {
                 category={category}
                 setCategory={setCategory}
                 categories={categories}
+            />
+
+            <OrderSelect
+                setSortBy={setSortBy}
+                setSortOrder={setSortOrder}
             />
 
             <CarsList cars={filteredCars} />

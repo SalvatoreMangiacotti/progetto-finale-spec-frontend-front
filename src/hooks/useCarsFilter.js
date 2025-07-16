@@ -2,60 +2,85 @@
 import { useGlobalContext } from "../context/GlobalContext";
 import { useState, useMemo, useEffect } from "react";
 
-
 function useCarsFilter() {
 
     // Dati delle auto dal contesto globale
     const { cars } = useGlobalContext();
 
-    // Stati per: ricerca, ricerca debounced e categoria
+    // Stati per la ricerca, ricerca con debounce, categoria e ordinamento
     const [search, setSearch] = useState("");
     const [debouncedSearch, setDebouncedSearch] = useState(search);
+
     const [category, setCategory] = useState("");
 
+    const [sortBy, setSortBy] = useState("");
+    const [sortOrder, setSortOrder] = useState("asc");
 
 
-    // Debounced Search: delay 300ms
+
+    // Effetto per aggiornare la ricerca debounced con 300ms di ritardo
     useEffect(() => {
+        const timer = setTimeout(() => {
+            setDebouncedSearch(search);
+        }, 300);
 
-        const timer = setTimeout(() => setDebouncedSearch(search), 300);
+        // Cancella il timeout se search cambia prima dei 300ms
         return () => clearTimeout(timer);
-
     }, [search]);
 
 
 
-    // Filtro per titolo & categoria
+    // Memoizzazione del filtro e ordinamento auto
     const filteredCars = useMemo(() => {
 
-        return cars.filter(car => {
-            const carsByTitle = car.title.toLowerCase().includes(debouncedSearch.toLowerCase());
-            const carsByCategory = category ? car.category === category : cars;
-            return carsByTitle && carsByCategory;
-        })
+        // Filtro auto per titolo e categoria
+        let filtered = cars.filter(car => {
 
-    }, [debouncedSearch, category, cars]);
+            const matchesTitle = car.title.toLowerCase().includes(debouncedSearch.toLowerCase());
+            const matchesCategory = category ? car.category === category : true;
+
+            return matchesTitle && matchesCategory;
+        });
+
+        // Ordinamento alfabetico
+        if (sortBy) {
+            filtered.sort((a, b) => {
+
+                const valA = a[sortBy].toLowerCase();
+                const valB = b[sortBy].toLowerCase();
+
+                return sortOrder === "asc" ? valA.localeCompare(valB) : valB.localeCompare(valA);
+            });
+        }
+
+        return filtered;
+
+    }, [cars, debouncedSearch, category, sortBy, sortOrder]);
 
 
 
-    // Gestione delle categorie, crea un array di categorie uniche (Set)
+    // Memoizzazione delle categorie uniche tramite Set
     const categories = useMemo(() => {
-        // Set restituisce solo valori unici ottenuti dal map,
-        // lo spread lo trasforma in un array
+
+        // Set restituisce solo valori unici ottenuti dal map, lo spread li trasforma in un array
         return [...new Set(cars.map(car => car.category))];
+
     }, [cars]);
 
 
 
     return {
-
         filteredCars,
         search,
         setSearch,
         category,
         setCategory,
-        categories
-    }
+        categories,
+        sortBy,
+        setSortBy,
+        sortOrder,
+        setSortOrder
+    };
 
 }
 
