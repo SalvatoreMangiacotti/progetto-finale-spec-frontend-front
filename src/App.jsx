@@ -1,24 +1,29 @@
 // Hooks
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Componenti
-import DefaultLayout from './layouts/DefaultLayout'
-import Home from './pages/Home'
+import { GlobalProvider } from './context/GlobalContext';
+import DefaultLayout from './layouts/DefaultLayout';
+import Home from './pages/Home';
 
-import './App.css'
+// CSS
+import './App.css';
+
 
 function App() {
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<DefaultLayout />}>
-          <Route path='/' element={<Home />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <GlobalProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<DefaultLayout />}>
+            <Route path='/' element={<Home />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </GlobalProvider>
   )
 
 }
 
-export default App
+export default App;
