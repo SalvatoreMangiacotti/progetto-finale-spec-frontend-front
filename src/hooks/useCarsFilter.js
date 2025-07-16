@@ -36,10 +36,10 @@ function useCarsFilter() {
         // Filtro auto per titolo e categoria
         let filtered = cars.filter(car => {
 
-            const matchesTitle = car.title.toLowerCase().includes(debouncedSearch.toLowerCase());
-            const matchesCategory = category ? car.category === category : true;
+            const filterByTitle = car.title.toLowerCase().includes(debouncedSearch.toLowerCase());
+            const filterByCategory = category ? car.category === category : true;
 
-            return matchesTitle && matchesCategory;
+            return filterByTitle && filterByCategory;
         });
 
         // Ordinamento alfabetico
