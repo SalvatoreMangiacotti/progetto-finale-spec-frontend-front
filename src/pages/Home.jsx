@@ -1,7 +1,16 @@
+// Hooks
+import useCars from "../hooks/useCars";
+
+// Componenti
+import CarsList from "../components/CarsList";
+
+
 function Home() {
 
+    const { cars } = useCars();
+
     return (
-        <h1>Lista di auto</h1>
+        <CarsList cars={cars} />
     )
 
 }
