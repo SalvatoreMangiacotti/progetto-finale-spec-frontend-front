@@ -1,0 +1,28 @@
+/* debug - CSS temporaneo */
+
+#root {
+    width: 100%;
+}
+
+.cars-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.car-card {
+    text-align: center;
+    background-color: deepskyblue;
+    width: 30rem;
+}
+
+.button {
+    padding: 10px 22px;
+    background: #f7f7f7;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+}
+
+/* --------------------------------------- */
