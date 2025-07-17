@@ -6,6 +6,7 @@ import CarsList from "../components/CarsList";
 import SearchBar from "../components/SearchBar";
 import CategorySelect from "../components/CategorySelect";
 import OrderSelect from "../components/OrderSelect";
+import CompareSelect from "../components/CompareSelect";
 
 
 function Home() {
@@ -41,6 +42,8 @@ function Home() {
                     setSortBy={setSortBy}
                     setSortOrder={setSortOrder}
                 />
+
+                <CompareSelect />
             </div>
 
             <CarsList cars={filteredCars} />

@@ -1,6 +1,11 @@
+// Hooks
 import { Link } from "react-router-dom";
+import { useGlobalContext } from "../context/GlobalContext";
+
 
 function CarsList({ cars }) {
+
+    const { addCar } = useGlobalContext()
 
     return (
         <div className="cars-container">
@@ -9,10 +14,11 @@ function CarsList({ cars }) {
                     <h2>{car.title}</h2>
                     <p>{car.category}</p>
                     <Link to={`/cars/${car.id}`}><span className="button">Dettagli</span></Link>
-                    <span className="compare-button">+</span>
+                    <span className="button" onClick={() => addCar(car)}> +</span>
                 </div>
-            )}
-        </div>
+            )
+            }
+        </div >
     )
 
 }
