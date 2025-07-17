@@ -1,7 +1,37 @@
-/* debug - CSS temporaneo */
+/* resets */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 #root {
     width: 100%;
+    min-height: 100vh;
+}
+
+
+
+/* header */
+
+header {
+    margin-bottom: 5rem;
+}
+
+
+
+/* debug - CSS temporaneo */
+
+header nav {
+    background-color: lightskyblue;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.nav-link {
+    color: black;
 }
 
 .cars-container {
