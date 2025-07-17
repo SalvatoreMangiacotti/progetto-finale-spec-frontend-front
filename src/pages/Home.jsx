@@ -25,21 +25,23 @@ function Home() {
 
     return (
         <>
-            <SearchBar
-                search={search}
-                setSearch={setSearch}
-            />
+            <div className="side-bar">
+                <SearchBar
+                    search={search}
+                    setSearch={setSearch}
+                />
 
-            <CategorySelect
-                category={category}
-                setCategory={setCategory}
-                categories={categories}
-            />
+                <CategorySelect
+                    category={category}
+                    setCategory={setCategory}
+                    categories={categories}
+                />
 
-            <OrderSelect
-                setSortBy={setSortBy}
-                setSortOrder={setSortOrder}
-            />
+                <OrderSelect
+                    setSortBy={setSortBy}
+                    setSortOrder={setSortOrder}
+                />
+            </div>
 
             <CarsList cars={filteredCars} />
         </>
