@@ -55,4 +55,13 @@ header nav {
     text-align: center;
 }
 
+.compare-button {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.compare-button:hover {
+    color: white;
+}
+
 /* --------------------------------------- */
