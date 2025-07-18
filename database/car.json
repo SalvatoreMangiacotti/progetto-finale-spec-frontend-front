@@ -1,0 +1,364 @@
+[
+    {
+        "title": "Ferrari 250 GTO",
+        "category": "Gran Turismo",
+        "year": 1962,
+        "origin": "Italia",
+        "unitsProduced": 36,
+        "engine": "V12 3.0 l",
+        "horsepower": 300,
+        "topSpeed": 280,
+        "acceleration0to100": 6.1,
+        "transmission": "Manuale 5 marce",
+        "description": "La Ferrari 250 GTO è considerata una delle auto più preziose e desiderate al mondo. Progettata specificamente per le competizioni GT, combina prestazioni eccezionali con un design iconico firmato da Sergio Scaglietti.",
+        "materials": "Carrozzeria in alluminio",
+        "designer": [
+            "Sergio Scaglietti",
+            "Giotto Bizzarrini",
+            "Mauro Forghieri"
+        ],
+        "races": [
+            "FIA GT Championship",
+            "24 Ore di Le Mans",
+            "Tour de France Automobile"
+        ],
+        "id": 1,
+        "createdAt": "2025-07-15T14:17:47.744Z",
+        "updatedAt": "2025-07-15T14:17:47.744Z"
+    },
+    {
+        "title": "Jaguar E-Type Lightweight Coupe",
+        "category": "Coupé",
+        "year": 1963,
+        "origin": "Regno Unito",
+        "unitsProduced": 12,
+        "engine": "6 cilindri in linea 3.8 l",
+        "horsepower": 300,
+        "topSpeed": 250,
+        "acceleration0to100": 7.3,
+        "transmission": "Manuale 4 marce",
+        "description": "Versione alleggerita e potenziata della celebre E-Type, costruita per le competizioni. Utilizzava pannelli in alluminio e componenti racing per ridurre significativamente il peso rispetto alla versione stradale.",
+        "materials": "Carrozzeria in alluminio",
+        "designer": [
+            "Malcolm Sayer"
+        ],
+        "races": [
+            "Silverstone",
+            "Goodwood"
+        ],
+        "id": 2,
+        "createdAt": "2025-07-15T14:18:25.832Z",
+        "updatedAt": "2025-07-15T14:18:25.832Z"
+    },
+    {
+        "title": "Lamborghini Miura",
+        "category": "Supercar",
+        "year": 1966,
+        "origin": "Italia",
+        "unitsProduced": 764,
+        "engine": "V12 3.9 l",
+        "horsepower": 350,
+        "topSpeed": 280,
+        "acceleration0to100": 6.7,
+        "transmission": "Manuale 5 marce",
+        "description": "La prima vera supercar della storia automobilistica. Famosa per il design innovativo e le elevate prestazioni.",
+        "materials": "Carrozzeria in acciaio e alluminio",
+        "designer": [
+            "Marcello Gandini"
+        ],
+        "id": 3,
+        "createdAt": "2025-07-15T14:19:40.995Z",
+        "updatedAt": "2025-07-15T14:19:40.995Z"
+    },
+    {
+        "title": "Aston Martin DB5",
+        "category": "Gran Turismo",
+        "year": 1963,
+        "origin": "Regno Unito",
+        "unitsProduced": 1230,
+        "engine": "6 cilindri in linea 4.0 l",
+        "horsepower": 282,
+        "topSpeed": 230,
+        "acceleration0to100": 8.1,
+        "transmission": "Manuale 5 marce",
+        "description": "Iconica Gran Turismo britannica, resa celebre dai film di James Bond. Combina eleganza, prestazioni e artigianalità in un pacchetto raffinato che incarna lo spirito del lusso sportivo inglese.",
+        "materials": "Carrozzeria in acciaio",
+        "designer": [
+            "Carroll Shelby",
+            "John Wyer"
+        ],
+        "races": [
+            "Rally di Montecarlo",
+            "Rally di Londra-Sydney"
+        ],
+        "id": 4,
+        "createdAt": "2025-07-15T14:21:23.278Z",
+        "updatedAt": "2025-07-15T14:21:23.278Z"
+    },
+    {
+        "title": "Mercedes-Benz 300 SL “Gullwing”",
+        "category": "Sportiva da corsa",
+        "year": 1954,
+        "origin": "Germania",
+        "unitsProduced": 1400,
+        "engine": "6 cilindri in linea 3.0 l",
+        "horsepower": 215,
+        "topSpeed": 260,
+        "acceleration0to100": 8.8,
+        "transmission": "Manuale 4 marce",
+        "description": "Auto leggendaria con le iconiche porte ad ali di gabbiano. Fu la prima auto di produzione con iniezione diretta di benzina e stabilì nuovi standard per prestazioni e innovazione tecnologica.",
+        "materials": "Carrozzeria in acciaio",
+        "designer": [
+            "Friedrich Geiger"
+        ],
+        "races": [
+            "24 Ore di Le Mans",
+            "Mille Miglia",
+            "Carrera Panamericana"
+        ],
+        "id": 5,
+        "createdAt": "2025-07-15T14:22:55.627Z",
+        "updatedAt": "2025-07-15T14:22:55.627Z"
+    },
+    {
+        "title": "Chevrolet Corvette C2 Sting Ray",
+        "category": "Sportiva da corsa",
+        "year": 1963,
+        "origin": "USA",
+        "unitsProduced": 210000,
+        "engine": "V8 5.4 l",
+        "horsepower": 300,
+        "topSpeed": 250,
+        "acceleration0to100": 6.8,
+        "transmission": "Manuale 4/5 marce",
+        "description": "Seconda generazione della Corvette, caratterizzata da un design completamente rinnovato e più aggressivo. La Sting Ray rappresentò un punto di svolta per la sportiva americana.",
+        "materials": "Carrozzeria in fibra di vetro",
+        "designer": [
+            "Bill Mitchell"
+        ],
+        "races": [
+            "SCCA",
+            "24 Ore di Le Mans",
+            "Sebring"
+        ],
+        "id": 6,
+        "createdAt": "2025-07-15T14:23:57.343Z",
+        "updatedAt": "2025-07-15T14:23:57.343Z"
+    },
+    {
+        "title": "BMW 507",
+        "category": "Roadster",
+        "year": 1956,
+        "origin": "Germania",
+        "unitsProduced": 252,
+        "engine": "V8 3.2 l",
+        "horsepower": 150,
+        "topSpeed": 220,
+        "acceleration0to100": 9.5,
+        "transmission": "Manuale 4 marce",
+        "description": "Elegante roadster di lusso con prestazioni sportive, molto apprezzata negli USA.",
+        "materials": "Carrozzeria in acciaio e alluminio",
+        "designer": [
+            "Albrecht Goertz"
+        ],
+        "id": 7,
+        "createdAt": "2025-07-15T14:25:07.809Z",
+        "updatedAt": "2025-07-15T14:25:07.809Z"
+    },
+    {
+        "title": "Porsche 904 Carrera GTS",
+        "category": "Sportiva da corsa",
+        "year": 1964,
+        "origin": "Germania",
+        "unitsProduced": 1200,
+        "engine": "4 cilindri boxer 2.0 l",
+        "horsepower": 180,
+        "topSpeed": 260,
+        "acceleration0to100": 6.5,
+        "transmission": "Manuale 5 marce",
+        "description": "Auto da corsa progettata per competere, combinava un telaio leggero in fibra di vetro con meccanica racing. Rappresentò il ritorno di Porsche alle competizioni GT internazionali.",
+        "materials": "Carrozzeria in fibra di vetro e acciaio",
+        "designer": [
+            "Ferdinand Porsche"
+        ],
+        "races": [
+            "24 Ore di Le Mans",
+            "Targa Florio",
+            "Rally di Monte Carlo"
+        ],
+        "id": 8,
+        "createdAt": "2025-07-15T14:28:24.359Z",
+        "updatedAt": "2025-07-15T14:28:24.359Z"
+    },
+    {
+        "title": "Shelby Daytona Coupe",
+        "category": "Sportiva da corsa",
+        "year": 1964,
+        "origin": "USA",
+        "unitsProduced": 6,
+        "engine": "V8 7.0 l",
+        "horsepower": 385,
+        "topSpeed": 320,
+        "acceleration0to100": 4.5,
+        "transmission": "Manuale 4 marce",
+        "description": "Versione coupé aerodinamica della Cobra, progettata specificamente per battere la Ferrari nelle competizioni GT. Fu la prima auto americana a vincere il campionato mondiale GT.",
+        "materials": "Carrozzeria in alluminio e fibra di vetro",
+        "designer": [
+            "Peter Brock"
+        ],
+        "races": [
+            "FIA GT Championship, 24 Ore di Le Mans, 12 Ore di Sebring"
+        ],
+        "id": 9,
+        "createdAt": "2025-07-15T14:30:39.872Z",
+        "updatedAt": "2025-07-15T14:30:39.872Z"
+    },
+    {
+        "title": "Ford GT40 Mk I",
+        "category": "Sportiva da corsa",
+        "year": 1964,
+        "origin": "USA",
+        "unitsProduced": 87,
+        "engine": "V8 4.7 l",
+        "horsepower": 385,
+        "topSpeed": 340,
+        "acceleration0to100": 5.2,
+        "transmission": "Manuale 5 marce",
+        "description": "Nata dal desiderio di Henry Ford II di battere la Ferrari a Le Mans, la GT40 dominò la classe regina delle competizioni endurance negli anni '60, vincendo quattro volte consecutive a Le Mans.",
+        "materials": "Carrozzeria in fibra di vetro e alluminio",
+        "designer": [
+            "John Wyer",
+            "Roy Lunn"
+        ],
+        "races": [
+            "24 Ore di Le Mans",
+            "12 Ore di Sebring",
+            "24 Ore di Daytona"
+        ],
+        "id": 10,
+        "createdAt": "2025-07-15T14:35:28.939Z",
+        "updatedAt": "2025-07-15T14:35:28.939Z"
+    },
+    {
+        "title": "Lancia Aurelia B20 GT",
+        "category": "Gran Turismo",
+        "year": 1951,
+        "origin": "Italia",
+        "unitsProduced": 3281,
+        "engine": "V6 2.0 l",
+        "horsepower": 75,
+        "topSpeed": 160,
+        "acceleration0to100": 15,
+        "transmission": "Manuale 4 marce",
+        "description": "Una delle prime vere Gran Turismo, la B20 GT combinava innovazioni tecniche come il primo motore V6 di produzione con un design elegante firmato da Pinin Farina.",
+        "materials": "Carrozzeria in acciaio",
+        "designer": [
+            "Pinin Farina"
+        ],
+        "races": [
+            "Mille Miglia",
+            "Targa Florio",
+            "Rally di Monte Carlo"
+        ],
+        "id": 11,
+        "createdAt": "2025-07-15T14:37:11.604Z",
+        "updatedAt": "2025-07-15T14:37:11.604Z"
+    },
+    {
+        "title": "Maserati A6G/54 Zagato",
+        "category": "Gran Turismo",
+        "year": 1954,
+        "origin": "Italia",
+        "unitsProduced": 60,
+        "engine": "6 cilindri in linea 2.0 l",
+        "horsepower": 150,
+        "topSpeed": 210,
+        "acceleration0to100": 9.2,
+        "transmission": "Manuale 4 marce",
+        "description": "Rara e preziosa sportiva italiana con carrozzeria Zagato, caratterizzata da linee aggressive e peso ridotto. Ogni esemplare era praticamente unico, costruito a mano secondo le specifiche del cliente.",
+        "materials": "Carrozzeria in alluminio",
+        "designer": [
+            "Elio Zagato"
+        ],
+        "races": [
+            "Mille Miglia, Targa Florio, Coppa d'Oro delle Dolomiti"
+        ],
+        "id": 12,
+        "createdAt": "2025-07-15T14:38:40.339Z",
+        "updatedAt": "2025-07-15T14:38:40.339Z"
+    },
+    {
+        "title": "Mercedes-Benz W196",
+        "category": "Monoposto da corsa",
+        "year": 1954,
+        "origin": "Germania",
+        "unitsProduced": 14,
+        "engine": "8 cilindri in linea 2.5 l",
+        "horsepower": 290,
+        "topSpeed": 300,
+        "acceleration0to100": 5,
+        "transmission": "Manuale 5 marce",
+        "description": "Monoposto di Formula 1 che dominò il campionato mondiale 1954-1955 con Juan Manuel Fangio. Innovativa per l'iniezione diretta di benzina e la sospensione posteriore a bracci oscillanti.",
+        "materials": "Carrozzeria in  magnesio e alluminio",
+        "designer": [
+            "Rudolf Uhlenhaut"
+        ],
+        "races": [
+            "Formula 1 World Championship, Gran Premio di Germania",
+            "Gran Premio d' Italia"
+        ],
+        "id": 13,
+        "createdAt": "2025-07-15T14:40:13.622Z",
+        "updatedAt": "2025-07-15T14:40:13.622Z"
+    },
+    {
+        "title": "Porsche 356 Speedster",
+        "category": "Roadster",
+        "year": 1954,
+        "origin": "Germania",
+        "unitsProduced": 4760,
+        "engine": "4 cilindri boxer 1.5 l",
+        "horsepower": 70,
+        "topSpeed": 180,
+        "acceleration0to100": 13,
+        "transmission": "Manuale 4 marce",
+        "description": "Versione scoperta e alleggerita della 356, progettata per il mercato americano. Diventò un'icona della California degli anni '50 e simbolo della libertà su quattro ruote.",
+        "materials": "Carrozzeria in acciaio",
+        "designer": [
+            "Erwin Komenda"
+        ],
+        "races": [
+            "SCCA",
+            "Rallye di Liegi",
+            "Carrera Panamericana"
+        ],
+        "id": 14,
+        "createdAt": "2025-07-15T14:42:25.954Z",
+        "updatedAt": "2025-07-15T14:42:25.954Z"
+    },
+    {
+        "title": "Toyota 2000GT",
+        "category": "Gran Turismo",
+        "year": 1967,
+        "origin": "Giappone",
+        "unitsProduced": 351,
+        "engine": "6 cilindri in linea 2.0 l",
+        "horsepower": 150,
+        "topSpeed": 220,
+        "acceleration0to100": 8.6,
+        "transmission": "Manuale 5 marce",
+        "description": "Gran Turismo giapponese di alto livello, prodotta in collaborazione con Yamaha. Considerata la prima sportiva giapponese a competere con le europee sia per prestazioni che per design.",
+        "materials": "Carrozzeria in alluminio",
+        "designer": [
+            "Satoru Nozaki"
+        ],
+        "races": [
+            "Fuji 24 Hours",
+            "SCCA",
+            "Speed Trials di Bonneville"
+        ],
+        "id": 15,
+        "createdAt": "2025-07-15T14:45:31.635Z",
+        "updatedAt": "2025-07-15T14:45:31.635Z"
+    }
+]

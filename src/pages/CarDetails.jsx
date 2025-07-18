@@ -28,7 +28,6 @@ function CarDetails() {
             <p>Designer: {car.designer}</p>
             <p>Gare: {car.races}</p>
             <p>Descizione: {car.description}</p>
-            <img src={`http://localhost:3001${car.image}`} />
         </div>)
 
 }
