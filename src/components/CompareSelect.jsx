@@ -1,10 +1,13 @@
 // Hooks
 import { useGlobalContext } from "../context/GlobalContext";
+import { useNavigate } from "react-router-dom";
 
 
 function CompareSelect() {
 
     const { carsToCompare, removeCar } = useGlobalContext()
+    const navigate = useNavigate();
+
 
     return (
         <div className="compare-select-container">
@@ -19,7 +22,7 @@ function CompareSelect() {
                     </li>
                 ))}
 
-                <button className="button">
+                <button className="button" onClick={() => navigate("/compare")}>
                     Compara
                 </button>
             </ul>

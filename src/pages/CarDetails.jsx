@@ -22,8 +22,11 @@ function CarDetails() {
     return (
         <div className="car-details">
             <h2>{car.title}</h2>
-            <p><strong>Categoria:</strong> {car.category}</p>
-            <p><strong>Anno:</strong> {car.year}</p>
+            <p>Categoria: {car.category}</p>
+            <p>Paese di produzione: {car.origin}</p>
+            <p>Designer: {car.designer}</p>
+            <p>Gare: {car.races}</p>
+            <p>Descizione: {car.description}</p>
         </div>)
 
 }
