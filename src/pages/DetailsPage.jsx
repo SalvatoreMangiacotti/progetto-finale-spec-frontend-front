@@ -34,8 +34,8 @@ function DetailsPage() {
                     <h2>{car.title}</h2>
                     <p>Categoria: {car.category}</p>
                     <p>Paese di produzione: {car.origin}</p>
-                    <p>Designer: {car.designer}</p>
-                    <p>Gare: {car.races}</p>
+                    <p>Designer: {car.designer.join(', ')}</p>
+                    <p>Gare: {car.races.join(', ')}</p>
                     <p>Descizione: {car.description}</p>
 
                 </div>
