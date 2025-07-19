@@ -3,6 +3,8 @@ import { useGlobalContext } from "../context/GlobalContext";
 import { Link } from "react-router-dom";
 import useCarsCompareDetails from "../hooks/useCarsCompareDetails";
 
+// CSS
+import '../styles/ComparePage.css'
 
 
 function ComparePage() {
@@ -18,23 +20,27 @@ function ComparePage() {
 
 
     return (
-        <div className="compare-page">
+        <div className="compare-container">
 
             <h2>Confronto auto</h2>
 
-            <div className="compare-car-container">
-                {[carOne, carTwo].map((car) => (
-                    <div key={car.id} className="compare-car-card">
+            <div className="compare-content">
 
-                        <div className="car-card-title">
+                {[carOne, carTwo].map((car) => (
+
+                    <div key={car.id} className="compare-card">
+
+                        <div className="card-title">
                             <h2>{car.title}</h2>
+                            <h3>Identità dell'auto</h3>
                             <p>Categoria: {car.category}</p>
                             <p>Anno: {car.year}</p>
                             <p>Unità prodotte: {car.unitsProduced}</p>
                             <p>Materiali Carrozzeria: {car.materials}</p>
                         </div>
 
-                        <div className="car-card-spec">
+                        <div className="card-spec">
+                            <h3>Specifiche tecniche</h3>
                             <p>Motore: {car.engine}</p>
                             <p>Cavalli: {car.horsepower} cv</p>
                             <p>Velocità massima: {car.topSpeed} km/h</p>
@@ -47,14 +53,16 @@ function ComparePage() {
                         </Link>
 
                     </div>
+
                 ))}
+
             </div>
 
             <Link to={`/`} className="button">
                 Torna indietro
             </Link>
 
-        </div >
+        </div>
     );
 }
 

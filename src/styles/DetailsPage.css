@@ -1,0 +1,11 @@
+/* details page */
+
+.details-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.details-card {
+    width: 50%;
+}

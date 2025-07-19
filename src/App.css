@@ -1,79 +1,53 @@
-/* resets */
+/* Resets */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+body {
+    line-height: 1.8;
+}
+
 #root {
     width: 100%;
-    min-height: 100vh;
 }
 
-
-
-/* header */
-
-header {
-    margin-bottom: 5rem;
+ul li {
+    list-style: none;
 }
 
+a {
+    color: #303030;
+    text-decoration: none;
+    transition: ease-in-out 0.2s;
+    border-bottom: 1px solid transparent;
+}
 
-/* aside */
+a:hover {
+    color: #0f60e4;
+    border-color: #303030;
+}
 
-.side-bar {
+main {
+    padding-top: 5rem;
+}
+
+.button,
+button {
+    background-color: #fafafa;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 20%;
-    position: fixed;
-}
-
-
-
-/* debug - CSS temporaneo */
-
-header nav {
-    background-color: lightskyblue;
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-}
-
-.nav-link {
-    color: black;
-}
-
-.cars-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-right: 10rem;
-    gap: 2rem;
-}
-
-.car-card {
-    text-align: center;
-    background-color: deepskyblue;
-    width: 30rem;
-}
-
-.button {
-    padding: 10px 22px;
-    background: #f7f7f7;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 1rem;
+    border-radius: 15px;
     cursor: pointer;
-    display: block;
-    text-align: center;
+    border: 1px solid #8f8f9d;
 }
 
-.compare-button {
-    font-size: 2rem;
-    cursor: pointer;
+.button:hover,
+button:hover {
+    background-color: #eaeaea;
 }
-
-.compare-button:hover {
-    color: white;
-}
-
-/* --------------------------------------- */

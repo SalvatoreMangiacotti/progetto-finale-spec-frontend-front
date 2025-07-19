@@ -10,7 +10,7 @@ function CompareSelect() {
 
 
     return (
-        <div className="compare-select-container">
+        <>
 
             <h2>Confronta auto</h2>
 
@@ -18,7 +18,9 @@ function CompareSelect() {
                 {carsToCompare.map(car => (
                     <li key={car.id}>
                         {car.title}
-                        <span className="button" onClick={() => removeCar(car.id)}>-</span>
+                        <span className="button" onClick={() => removeCar(car.id)}>
+                            <img src="./icons/remove-icon.svg" />
+                        </span>
                     </li>
                 ))}
 
@@ -27,7 +29,7 @@ function CompareSelect() {
                 </button>
             </ul>
 
-        </div>
+        </>
     )
 
 }

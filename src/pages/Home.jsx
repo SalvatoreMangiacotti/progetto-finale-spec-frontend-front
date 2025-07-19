@@ -8,6 +8,9 @@ import CategorySelect from "../components/CategorySelect";
 import OrderSelect from "../components/OrderSelect";
 import CompareSelect from "../components/CompareSelect";
 
+// CSS
+import '../styles/Home.css'
+
 
 function Home() {
 
@@ -25,8 +28,10 @@ function Home() {
     } = useCarsFilter();
 
     return (
-        <>
-            <div className="side-bar">
+        <div className="main-container">
+
+            <div className="main-side-bar hidden" >
+
                 <SearchBar
                     search={search}
                     setSearch={setSearch}
@@ -46,8 +51,11 @@ function Home() {
                 <CompareSelect />
             </div>
 
-            <CarsList cars={filteredCars} />
-        </>
+            <div className="main-cars-list">
+                <CarsList cars={filteredCars} />
+            </div>
+
+        </div>
     )
 
 }

@@ -1,0 +1,68 @@
+/* home */
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+
+/* side-bar*/
+
+.main-side-bar,
+.main-cars-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-side-bar {
+    background: #fff;
+    border: 1px solid #303030;
+    position: sticky;
+    top: 7rem;
+    height: max-content;
+    width: 40%;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+
+/* cars-list */
+
+.main-cars-list {
+    width: 50%;
+    gap: 2rem;
+}
+
+.car-card {
+    text-align: center;
+    width: 100%;
+    border: 1px solid #303030;
+    padding: 1rem;
+}
+
+.main-side-bar li {
+    display: flex;
+    align-items: center;
+}
+
+
+/* media queries */
+
+@media (max-width: 768px) {
+
+    .main-container {
+        padding: 0 1rem;
+    }
+
+    .main-side-bar {
+        width: 100%;
+        top: 5rem;
+    }
+
+    .main-cars-list {
+        width: 100%;
+        padding-top: 1rem;
+    }
+}
