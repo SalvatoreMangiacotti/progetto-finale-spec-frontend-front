@@ -58,14 +58,33 @@ function useCarsFilter() {
     }, [cars, debouncedSearch, category, sortBy, sortOrder]);
 
 
-
-    // Memoizzazione delle categorie uniche tramite Set
+    // Memorizzazione delle categorie uniche tramite forEach
     const categories = useMemo(() => {
 
-        // Set restituisce solo valori unici ottenuti dal map, lo spread li trasforma in un array
-        return [...new Set(cars.map(car => car.category))];
+        const uniqueCategories = [];
+
+        cars.forEach(car => {
+
+            // Se non contiene la categoria
+            if (!uniqueCategories.includes(car.category)) {
+                uniqueCategories.push(car.category);
+            }
+
+        });
+
+        return uniqueCategories;
 
     }, [cars]);
+
+
+
+    // Memorizzazione delle categorie uniche tramite Set
+    // const categories = useMemo(() => {
+
+    //     // Set restituisce solo valori unici ottenuti dal map, lo spread li trasforma in un array
+    //     return [...new Set(cars.map(car => car.category))];
+
+    // }, [cars]);
 
 
 
