@@ -1,6 +1,6 @@
 // Hooks
 import { createContext, useContext } from "react";
-import useCarsData from "../hooks/useCarsData";
+import useCarsFetch from "../hooks/useCarsFetch";
 import useCarsCompare from "../hooks/useCarsCompare";
 import useFavorites from "../hooks/useFavorites";
 
@@ -11,7 +11,7 @@ const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
 
-    const carsData = useCarsData()
+    const carsData = useCarsFetch()
     const compareCarsLogic = useCarsCompare();
     const favoritesLogic = useFavorites();
 
@@ -22,7 +22,7 @@ export const GlobalProvider = ({ children }) => {
     )
 }
 
-// Hook per usare il contesto globalmente
+// Semplifica l'accesso ai dati del GlobalContext
 export const useGlobalContext = () => useContext(GlobalContext);
 
 export default GlobalContext;

@@ -1,12 +1,15 @@
 // Hooks
 import useCarsFilter from "../hooks/useCarsFilter";
+import { useGlobalContext } from "../context/GlobalContext";
 
 // Componenti
 import CarsList from "../components/CarsList";
-import SearchBar from "../components/SearchBar";
-import CategorySelect from "../components/CategorySelect";
-import OrderSelect from "../components/OrderSelect";
 import CompareSelect from "../components/CompareSelect";
+
+import SearchFilter from "../components/SearchFilter";
+import CategoryFilter from "../components/CategoryFilter";
+import SortFilter from "../components/SortFilter";
+
 
 // CSS
 import '../styles/Home.css'
@@ -14,37 +17,36 @@ import '../styles/Home.css'
 
 function Home() {
 
-    const {
+    const { carsList, error } = useGlobalContext();
 
+    const {
         filteredCars,
         search,
         setSearch,
-        category,
-        setCategory,
+        categoryFilter,
+        setCategoryFilter,
         categories,
-        setSortBy,
-        setSortOrder
-
-    } = useCarsFilter();
+        sortOrder,
+        setSortOrder,
+    } = useCarsFilter(carsList);
 
     return (
         <div className="main-container">
 
-            <div className="main-side-bar hidden" >
+            <div className="main-side-bar" >
 
-                <SearchBar
-                    search={search}
+                <SearchFilter search={search}
                     setSearch={setSearch}
                 />
 
-                <CategorySelect
-                    category={category}
-                    setCategory={setCategory}
+                <CategoryFilter
+                    categoryFilter={categoryFilter}
+                    setCategoryFilter={setCategoryFilter}
                     categories={categories}
                 />
 
-                <OrderSelect
-                    setSortBy={setSortBy}
+                <SortFilter
+                    sortOrder={sortOrder}
                     setSortOrder={setSortOrder}
                 />
 
@@ -52,7 +54,7 @@ function Home() {
             </div>
 
             <div className="main-cars-list">
-                <CarsList cars={filteredCars} />
+                <CarsList filteredCars={filteredCars} error={error} />
             </div>
 
         </div>

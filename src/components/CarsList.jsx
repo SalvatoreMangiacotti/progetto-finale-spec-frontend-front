@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/GlobalContext";
 
 
-function CarsList({ cars }) {
+function CarsList({ filteredCars, error }) {
 
     const { addCar, addFavorite } = useGlobalContext()
 
+    if (error) return <p>{error.message}</p>;
+
     return (
         <>
-            {cars.map(car =>
+            {filteredCars.map(car =>
                 <div className="car-card" key={car.id}>
 
                     <h2>{car.title}</h2>

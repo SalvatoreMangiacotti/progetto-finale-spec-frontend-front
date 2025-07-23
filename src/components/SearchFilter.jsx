@@ -1,4 +1,4 @@
-function SearchBar({ search, setSearch }) {
+function SearchFilter({ search, setSearch }) {
 
     return (
         <input
@@ -10,4 +10,4 @@ function SearchBar({ search, setSearch }) {
 
 }
 
-export default SearchBar;
+export default SearchFilter;

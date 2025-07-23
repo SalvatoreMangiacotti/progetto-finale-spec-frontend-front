@@ -1,71 +1,112 @@
 // Hooks
-import { useGlobalContext } from "../context/GlobalContext";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 
-function useCarsFilter() {
 
-    // Dati delle auto dal contesto globale
-    const { cars } = useGlobalContext();
+// Funzione di debounce
+function debounce(callback, delay) {
 
-    // Stati per la ricerca, ricerca con debounce, categoria e ordinamento
+    let timer;
+
+    return (value) => {
+
+        clearTimeout(timer);
+
+        timer = setTimeout(() => {
+
+            callback(value);
+
+        }, delay);
+
+    };
+
+}
+
+
+function useCarsFilter(carsList) {
+
+    // State per la searchbar & debounce
     const [search, setSearch] = useState("");
-    const [debouncedSearch, setDebouncedSearch] = useState(search);
+    const [debouncedSearch, setDebouncedSearch] = useState("");
 
-    const [category, setCategory] = useState("");
+    // State per il filtro categoria
+    const [categoryFilter, setCategoryFilter] = useState("");
 
-    const [sortBy, setSortBy] = useState("");
-    const [sortOrder, setSortOrder] = useState("asc");
+    // State per l'ordinamento alfabetico
+    const [sortOrder, setSortOrder] = useState("");
 
 
+    // funzione debounced
+    const delayedSearch = useCallback(
+        debounce((value) => {
+            setDebouncedSearch(value);
+        }, 300),
+        []
+    );
 
-    // Effetto per aggiornare la ricerca debounced con 300ms di ritardo
+
+    // useEffect: attiva delayedSearch al cambio di 'search'
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setDebouncedSearch(search);
-        }, 300);
-
-        // Cancella il timeout se search cambia prima dei 300ms
-        return () => clearTimeout(timer);
-    }, [search]);
+        delayedSearch(search);
+    }, [search, delayedSearch]);
 
 
-
-    // Memoizzazione del filtro e ordinamento auto
     const filteredCars = useMemo(() => {
 
-        // Filtro auto per titolo e categoria
-        let filtered = cars.filter(car => {
+        let filtered = carsList;
 
-            const filterByTitle = car.title.toLowerCase().includes(debouncedSearch.toLowerCase());
-            const filterByCategory = category ? car.category === category : true;
 
-            return filterByTitle && filterByCategory;
-        });
+        // Filtro in base alla ricerca nel titolo
+        if (debouncedSearch) {
+
+            filtered = filtered.filter(car =>
+                car.title.toLowerCase().includes(debouncedSearch.toLowerCase())
+            );
+
+        }
+
+
+        // Filtro per categoria
+        if (categoryFilter) {
+
+            filtered = filtered.filter(car =>
+                car.category === categoryFilter
+            );
+
+        }
+
 
         // Ordinamento alfabetico
-        if (sortBy) {
+        if (sortOrder) {
+
+            const [sortBy, order] = sortOrder.split("-");
+
             filtered.sort((a, b) => {
 
                 const valA = a[sortBy].toLowerCase();
                 const valB = b[sortBy].toLowerCase();
 
-                return sortOrder === "asc" ? valA.localeCompare(valB) : valB.localeCompare(valA);
+                return order === "asc"
+                    ? valA.localeCompare(valB)
+                    : valB.localeCompare(valA);
+
             });
+
         }
+
 
         return filtered;
 
-    }, [cars, debouncedSearch, category, sortBy, sortOrder]);
+    }, [carsList, debouncedSearch, categoryFilter, sortOrder]);
 
 
-    // Memorizzazione delle categorie uniche tramite forEach
+
+    // Restituisce una lista di categorie uniche
     const categories = useMemo(() => {
 
         const uniqueCategories = [];
 
-        cars.forEach(car => {
+        carsList.forEach(car => {
 
-            // Se non contiene la categoria
             if (!uniqueCategories.includes(car.category)) {
                 uniqueCategories.push(car.category);
             }
@@ -74,17 +115,7 @@ function useCarsFilter() {
 
         return uniqueCategories;
 
-    }, [cars]);
-
-
-
-    // Memorizzazione delle categorie uniche tramite Set
-    // const categories = useMemo(() => {
-
-    //     // Set restituisce solo valori unici ottenuti dal map, lo spread li trasforma in un array
-    //     return [...new Set(cars.map(car => car.category))];
-
-    // }, [cars]);
+    }, [carsList]);
 
 
 
@@ -92,13 +123,11 @@ function useCarsFilter() {
         filteredCars,
         search,
         setSearch,
-        category,
-        setCategory,
         categories,
-        sortBy,
-        setSortBy,
+        categoryFilter,
+        setCategoryFilter,
         sortOrder,
-        setSortOrder
+        setSortOrder,
     };
 
 }
