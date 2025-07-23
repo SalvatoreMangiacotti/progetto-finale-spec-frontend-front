@@ -4,13 +4,11 @@ import { useEffect, useState } from "react";
 // api url
 const apiUrl = import.meta.env.VITE_API_URL;
 
+
 function useCarsFetch() {
 
     // Stato per la lista delle auto
     const [carsList, setCarsList] = useState([]);
-
-    // Stato per i dettagli di una singola auto
-    const [car, setCar] = useState(null);
 
     // State per gestire errori
     const [error, setError] = useState(null);
@@ -46,22 +44,9 @@ function useCarsFetch() {
     }, []);
 
 
-    // Recupero id auto
-    async function getCarById(id) {
-        try {
-            const response = await fetch(`${apiUrl}/cars/${id}`);
-            const data = await response.json();
-            setCar(data.car);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
     return {
         carsList,
         error,
-        getCarById,
-        car
     };
 }
 
