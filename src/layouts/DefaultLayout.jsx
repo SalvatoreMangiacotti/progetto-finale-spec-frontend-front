@@ -1,20 +1,24 @@
 // Hooks
-import { Outlet } from "react-router-dom";
-import Header from "../components/Header";
+import { Outlet } from 'react-router-dom';
+
+
+// Componenti
+import Navbar from '../components/Navbar';
+
 
 
 function DefaultLayout() {
-
     return (
         <>
-            <Header />
+            <header>
+                <Navbar />
+            </header>
 
             <main>
                 <Outlet />
             </main>
         </>
-    )
-
+    );
 }
 
 export default DefaultLayout;

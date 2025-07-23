@@ -1,5 +1,7 @@
 // Hooks
-import { useState } from "react";
+import { useState } from 'react';
+
+
 
 
 function useCarsCompare() {
@@ -11,14 +13,15 @@ function useCarsCompare() {
     // Aggiungi un'auto al comparatore
     function addToCompare(carToAdd) {
 
-        const carAlreadyAdded = carsToCompare.find(selectedCar => selectedCar.id === carToAdd.id);
+        const carAlreadyAdded = carsToCompare.find(
+            selectedCar => selectedCar.id === carToAdd.id
+        );
 
         const canBeAdded = carsToCompare.length < 2 && !carAlreadyAdded;
 
         if (canBeAdded) {
             setCarsToCompare(previousCars => [...previousCars, carToAdd]);
         }
-
     }
 
 
@@ -26,7 +29,9 @@ function useCarsCompare() {
     function removeFromCompare(carIdToRemove) {
 
         setCarsToCompare(previousCars =>
-            previousCars.filter(selectedCar => selectedCar.id !== carIdToRemove)
+            previousCars.filter(
+                selectedCar => selectedCar.id !== carIdToRemove
+            )
         );
 
     }
@@ -39,6 +44,5 @@ function useCarsCompare() {
     };
 
 }
-
 
 export default useCarsCompare;

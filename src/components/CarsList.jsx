@@ -1,42 +1,47 @@
 // Hooks
-import { Link } from "react-router-dom";
-import { useGlobalContext } from "../context/GlobalContext";
+import { Link } from 'react-router-dom';
+import { useGlobalContext } from '../context/GlobalContext';
+
 
 
 function CarsList({ filteredCars, error }) {
 
-    const { addToCompare, addFavorite } = useGlobalContext()
+    const { addToCompare, addFavorite } = useGlobalContext();
 
-    if (error) return <p>{error.message}</p>;
+
+    if (error) {
+        return <p>{error.message}</p>;
+    }
+
 
     return (
-        <ul className="cars-list">
-
-            {filteredCars.map(car =>
-
-                <li key={car.id} className="list-car">
-
+        <>
+            {filteredCars.map(car => (
+                <div
+                    key={car.id}
+                    className="list-car"
+                >
                     <h3>{car.title}</h3>
-
                     <p>{car.category}</p>
 
-                    <Link to={`/cars/${car.id}`} className="card-link">Dettagli</Link>
+                    <Link
+                        to={`/cars/${car.id}`}
+                        className="card-link"
+                    >
+                        Dettagli
+                    </Link>
 
                     <button onClick={() => addToCompare(car)}>
-                        <img src="./icons/add-icon.svg" />
+                        <img src="./icons/add-icon.svg" alt="Aggiungi al confronto" />
                     </button>
 
                     <button onClick={() => addFavorite(car)}>
-                        <img src="./icons/favorite-icon.svg" />
+                        <img src="./icons/favorite-icon.svg" alt="Aggiungi ai preferiti" />
                     </button>
-
-                </li>
-            )
-            }
-
-        </ul>
-    )
-
+                </div>
+            ))}
+        </>
+    );
 }
 
 export default CarsList;

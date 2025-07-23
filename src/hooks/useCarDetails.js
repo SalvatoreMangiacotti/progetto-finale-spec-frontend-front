@@ -1,8 +1,10 @@
 // Hooks
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+
 
 // API URL
 const apiUrl = import.meta.env.VITE_API_URL;
+
 
 
 function useCarDetails(id) {
@@ -21,7 +23,7 @@ function useCarDetails(id) {
                 const response = await fetch(`${apiUrl}/cars/${id}`);
 
                 if (!response.ok) {
-                    throw new Error("Dettagli dell'auto non disponibili");
+                    throw new Error('Dettagli dell\'auto non disponibili');
                 }
 
                 const data = await response.json();
@@ -33,14 +35,18 @@ function useCarDetails(id) {
             }
         };
 
+
         fetchCarId();
 
     }, [id]);
 
+
+
     return {
         car,
-        error,
+        error
     };
+
 }
 
 export default useCarDetails;

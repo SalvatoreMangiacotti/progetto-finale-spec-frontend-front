@@ -1,8 +1,10 @@
 // Hooks
 import { useEffect, useState } from "react";
 
-// api url
+
+// API URL
 const apiUrl = import.meta.env.VITE_API_URL;
+
 
 
 function useCarsFetch() {
@@ -10,15 +12,14 @@ function useCarsFetch() {
     // Stato per la lista delle auto
     const [carsList, setCarsList] = useState([]);
 
-    // State per gestire errori
+    // Stato per gestire errori
     const [error, setError] = useState(null);
 
 
-    // recupero lista di auto
+    // Recupero lista di auto
     useEffect(() => {
 
         async function fetchCars() {
-
             try {
 
                 const response = await fetch(`${apiUrl}/cars`);
@@ -36,7 +37,6 @@ function useCarsFetch() {
             } catch (error) {
                 setError(error);
             }
-
         }
 
         fetchCars();
@@ -48,6 +48,7 @@ function useCarsFetch() {
         carsList,
         error,
     };
+
 }
 
 export default useCarsFetch;

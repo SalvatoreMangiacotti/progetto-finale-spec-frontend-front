@@ -2,6 +2,7 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 
 
+
 // Funzione di debounce
 function debounce(callback, delay) {
 
@@ -12,9 +13,7 @@ function debounce(callback, delay) {
         clearTimeout(timer);
 
         timer = setTimeout(() => {
-
             callback(value);
-
         }, delay);
 
     };
@@ -22,20 +21,24 @@ function debounce(callback, delay) {
 }
 
 
+
 function useCarsFilter(carsList) {
 
-    // State per la searchbar & debounce
+    // Stato per la searchbar & debounce
     const [search, setSearch] = useState("");
     const [debouncedSearch, setDebouncedSearch] = useState("");
 
-    // State per il filtro categoria
+
+    // Stato per il filtro categoria
     const [categoryFilter, setCategoryFilter] = useState("");
 
-    // State per l'ordinamento alfabetico
+
+    // Stato per l'ordinamento
     const [sortOrder, setSortOrder] = useState("");
 
 
-    // funzione debounced
+
+    // Funzione con debounce
     const delayedSearch = useCallback(
         debounce((value) => {
             setDebouncedSearch(value);
@@ -44,38 +47,36 @@ function useCarsFilter(carsList) {
     );
 
 
-    // useEffect: attiva delayedSearch al cambio di 'search'
+    // Triggera la ricerca ritardata
     useEffect(() => {
         delayedSearch(search);
     }, [search, delayedSearch]);
 
 
+
+    // Applica filtri e ordinamento
     const filteredCars = useMemo(() => {
 
         let filtered = carsList;
 
 
-        // Filtro in base alla ricerca nel titolo
+        // Filtro per testo nel titolo
         if (debouncedSearch) {
-
             filtered = filtered.filter(car =>
                 car.title.toLowerCase().includes(debouncedSearch.toLowerCase())
             );
-
         }
 
 
         // Filtro per categoria
         if (categoryFilter) {
-
             filtered = filtered.filter(car =>
                 car.category === categoryFilter
             );
-
         }
 
 
-        // Ordinamento alfabetico
+        // Ordinamento A-Z o Z-A
         if (sortOrder) {
 
             const [sortBy, order] = sortOrder.split("-");
@@ -93,24 +94,20 @@ function useCarsFilter(carsList) {
 
         }
 
-
         return filtered;
 
     }, [carsList, debouncedSearch, categoryFilter, sortOrder]);
 
 
-
-    // Restituisce una lista di categorie uniche
+    // Categorie uniche
     const categories = useMemo(() => {
 
         const uniqueCategories = [];
 
         carsList.forEach(car => {
-
             if (!uniqueCategories.includes(car.category)) {
                 uniqueCategories.push(car.category);
             }
-
         });
 
         return uniqueCategories;

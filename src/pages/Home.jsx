@@ -1,18 +1,19 @@
 // Hooks
-import useCarsFilter from "../hooks/useCarsFilter";
-import { useGlobalContext } from "../context/GlobalContext";
+import useCarsFilter from '../hooks/useCarsFilter';
+import { useGlobalContext } from '../context/GlobalContext';
+
 
 // Componenti
-import CarsList from "../components/CarsList";
-import CompareSidebar from "../components/CompareSidebar";
-
-import SearchFilter from "../components/SearchFilter";
-import CategoryFilter from "../components/CategoryFilter";
-import SortFilter from "../components/SortFilter";
+import CarsList from '../components/CarsList';
+import CompareSidebar from '../components/CompareSidebar';
+import SearchFilter from '../components/SearchFilter';
+import CategoryFilter from '../components/CategoryFilter';
+import SortFilter from '../components/SortFilter';
 
 
 // CSS
-import '../styles/Home.css'
+import '../styles/Home.css';
+
 
 
 function Home() {
@@ -30,36 +31,33 @@ function Home() {
         setSortOrder,
     } = useCarsFilter(carsList);
 
+
     return (
-        <div className="main-container">
+        <>
+            <SearchFilter
+                search={search}
+                setSearch={setSearch}
+            />
 
-            <div className="main-side-bar" >
+            <CategoryFilter
+                categoryFilter={categoryFilter}
+                setCategoryFilter={setCategoryFilter}
+                categories={categories}
+            />
 
-                <SearchFilter search={search}
-                    setSearch={setSearch}
-                />
+            <SortFilter
+                sortOrder={sortOrder}
+                setSortOrder={setSortOrder}
+            />
 
-                <CategoryFilter
-                    categoryFilter={categoryFilter}
-                    setCategoryFilter={setCategoryFilter}
-                    categories={categories}
-                />
+            <CompareSidebar />
 
-                <SortFilter
-                    sortOrder={sortOrder}
-                    setSortOrder={setSortOrder}
-                />
-
-                <CompareSidebar />
-            </div>
-
-            <div className="main-cars-list">
-                <CarsList filteredCars={filteredCars} error={error} />
-            </div>
-
-        </div>
-    )
-
+            <CarsList
+                filteredCars={filteredCars}
+                error={error}
+            />
+        </>
+    );
 }
 
 export default Home;
