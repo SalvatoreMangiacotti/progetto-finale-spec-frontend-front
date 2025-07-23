@@ -30,17 +30,22 @@ function ComparePage() {
 
 
     return (
-        <>
+        <div className='compare-container'>
+
             <h2>Confronto auto</h2>
 
-            <div>
+            <div className='compare-content'>
+
+
                 {[carOne, carTwo].map((car) => (
                     <div
                         key={car.id}
+                        className='compare-card'
                     >
-                        <div>
-                            <h2>{car.title}</h2>
 
+                        <h2>{car.title}</h2>
+
+                        <div className='compare-info'>
                             <h3>Identità dell'auto</h3>
                             <p>Categoria: {car.category}</p>
                             <p>Anno: {car.year}</p>
@@ -48,7 +53,8 @@ function ComparePage() {
                             <p>Materiali Carrozzeria: {car.materials}</p>
                         </div>
 
-                        <div>
+
+                        <div className='compare-spec'>
                             <h3>Specifiche tecniche</h3>
                             <p>Motore: {car.engine}</p>
                             <p>Cavalli: {car.horsepower} cv</p>
@@ -65,6 +71,7 @@ function ComparePage() {
                         </Link>
                     </div>
                 ))}
+
             </div>
 
             <Link
@@ -73,7 +80,8 @@ function ComparePage() {
             >
                 Torna alla Home
             </Link>
-        </>
+
+        </div>
     );
 }
 

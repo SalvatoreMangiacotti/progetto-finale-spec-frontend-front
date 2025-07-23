@@ -10,7 +10,7 @@ function CompareSidebar() {
 
 
     return (
-        <aside className="compare-sidebar">
+        <>
             <h3>
                 Comparatore
             </h3>
@@ -32,7 +32,7 @@ function CompareSidebar() {
                     Confronta ora
                 </button>
             </Link>
-        </aside>
+        </>
     );
 }
 

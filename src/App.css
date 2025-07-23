@@ -10,6 +10,10 @@ body {
     line-height: 1.8;
 }
 
+main {
+    height: 100vh;
+}
+
 #root {
     width: 100%;
 }
@@ -27,7 +31,6 @@ a {
 
 a:hover {
     color: #0f60e4;
-    border-color: #303030;
 }
 
 main {

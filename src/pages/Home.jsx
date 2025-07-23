@@ -33,30 +33,36 @@ function Home() {
 
 
     return (
-        <>
-            <SearchFilter
-                search={search}
-                setSearch={setSearch}
-            />
+        <div className='main-container'>
 
-            <CategoryFilter
-                categoryFilter={categoryFilter}
-                setCategoryFilter={setCategoryFilter}
-                categories={categories}
-            />
+            <div className='sidebar'>
+                <SearchFilter
+                    search={search}
+                    setSearch={setSearch}
+                />
 
-            <SortFilter
-                sortOrder={sortOrder}
-                setSortOrder={setSortOrder}
-            />
+                <CategoryFilter
+                    categoryFilter={categoryFilter}
+                    setCategoryFilter={setCategoryFilter}
+                    categories={categories}
+                />
 
-            <CompareSidebar />
+                <SortFilter
+                    sortOrder={sortOrder}
+                    setSortOrder={setSortOrder}
+                />
 
-            <CarsList
-                filteredCars={filteredCars}
-                error={error}
-            />
-        </>
+                <CompareSidebar />
+            </div>
+
+            <div className='cars-list'>
+                <CarsList
+                    filteredCars={filteredCars}
+                    error={error}
+                />
+            </div>
+
+        </div>
     );
 }
 
