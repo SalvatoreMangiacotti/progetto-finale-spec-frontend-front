@@ -16,8 +16,6 @@ function useCarDetails(id) {
 
     useEffect(() => {
 
-        if (!id) return;
-
         const fetchCarId = async () => {
             try {
                 const response = await fetch(`${apiUrl}/cars/${id}`);

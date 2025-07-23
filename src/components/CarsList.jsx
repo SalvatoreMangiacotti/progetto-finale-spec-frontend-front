@@ -5,32 +5,36 @@ import { useGlobalContext } from "../context/GlobalContext";
 
 function CarsList({ filteredCars, error }) {
 
-    const { addCar, addFavorite } = useGlobalContext()
+    const { addToCompare, addFavorite } = useGlobalContext()
 
     if (error) return <p>{error.message}</p>;
 
     return (
-        <>
-            {filteredCars.map(car =>
-                <div className="car-card" key={car.id}>
+        <ul className="cars-list">
 
-                    <h2>{car.title}</h2>
+            {filteredCars.map(car =>
+
+                <li key={car.id} className="list-car">
+
+                    <h3>{car.title}</h3>
+
                     <p>{car.category}</p>
 
                     <Link to={`/cars/${car.id}`} className="card-link">Dettagli</Link>
 
-                    <span onClick={() => addCar(car)} className="button">
+                    <button onClick={() => addToCompare(car)}>
                         <img src="./icons/add-icon.svg" />
-                    </span>
+                    </button>
 
-                    <span onClick={() => addFavorite(car)} className="button">
+                    <button onClick={() => addFavorite(car)}>
                         <img src="./icons/favorite-icon.svg" />
-                    </span>
+                    </button>
 
-                </div>
+                </li>
             )
             }
-        </>
+
+        </ul>
     )
 
 }

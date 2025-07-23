@@ -12,11 +12,11 @@ const GlobalContext = createContext();
 export const GlobalProvider = ({ children }) => {
 
     const carsData = useCarsFetch()
-    const compareCarsLogic = useCarsCompare();
+    const carsCompareActions = useCarsCompare();
     const favoritesLogic = useFavorites();
 
     return (
-        <GlobalContext.Provider value={{ ...carsData, ...compareCarsLogic, ...favoritesLogic }}>
+        <GlobalContext.Provider value={{ ...carsData, ...carsCompareActions, ...favoritesLogic }}>
             {children}
         </GlobalContext.Provider>
     )

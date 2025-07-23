@@ -8,37 +8,37 @@ function useCarsCompare() {
     const [carsToCompare, setCarsToCompare] = useState([]);
 
 
+    // Aggiungi un'auto al comparatore
+    function addToCompare(carToAdd) {
 
-    // Funzione per aggiungere un'auto al comparatore
-    const addCar = (car) => {
+        const carAlreadyAdded = carsToCompare.find(selectedCar => selectedCar.id === carToAdd.id);
 
-        // Controlla se l'auto è già stata aggiunta
-        const carAlreadyAdded = carsToCompare.find(listCar => listCar.id === car.id);
+        const canBeAdded = carsToCompare.length < 2 && !carAlreadyAdded;
 
-        const twoCarsAlreadyAdded = carsToCompare.length >= 2;
-
-        if (!carAlreadyAdded && !twoCarsAlreadyAdded) {
-            setCarsToCompare(prevCar => [...prevCar, car])
+        if (canBeAdded) {
+            setCarsToCompare(previousCars => [...previousCars, carToAdd]);
         }
 
     }
 
 
+    // Rimuovi un'auto dal comparatore
+    function removeFromCompare(carIdToRemove) {
 
-    // Funzione per rimuovere un'auto dal comparatore
-    const removeCar = (id) => {
-        // Rimuove l'auto con id corrispondente dalla lista
-        setCarsToCompare(prevCars => prevCars.filter(currCar => currCar.id !== id));
+        setCarsToCompare(previousCars =>
+            previousCars.filter(selectedCar => selectedCar.id !== carIdToRemove)
+        );
+
     }
-
 
 
     return {
-        addCar,
-        removeCar,
+        addToCompare,
+        removeFromCompare,
         carsToCompare
-    }
+    };
 
 }
+
 
 export default useCarsCompare;

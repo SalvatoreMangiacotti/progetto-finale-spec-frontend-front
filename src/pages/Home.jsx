@@ -4,7 +4,7 @@ import { useGlobalContext } from "../context/GlobalContext";
 
 // Componenti
 import CarsList from "../components/CarsList";
-import CompareSelect from "../components/CompareSelect";
+import CompareSidebar from "../components/CompareSidebar";
 
 import SearchFilter from "../components/SearchFilter";
 import CategoryFilter from "../components/CategoryFilter";
@@ -50,7 +50,7 @@ function Home() {
                     setSortOrder={setSortOrder}
                 />
 
-                <CompareSelect />
+                <CompareSidebar />
             </div>
 
             <div className="main-cars-list">
