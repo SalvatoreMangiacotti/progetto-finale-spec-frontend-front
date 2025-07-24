@@ -15,7 +15,7 @@ function useCompareDetails(carsToCompare) {
     const [error, setError] = useState(null);
 
 
-    // Utility per fetchare i dati di una singola auto
+    // Funzione di utility per fetchare la auto singola
     async function fetchData(url) {
 
         const response = await fetch(url);
@@ -25,6 +25,7 @@ function useCompareDetails(carsToCompare) {
         }
 
         const data = await response.json();
+
         return data;
 
     }
@@ -41,18 +42,20 @@ function useCompareDetails(carsToCompare) {
                     fetchData(`${apiUrl}/cars/${car.id}`)
                 );
 
+
                 // Aspetto il completamento di tutte le fetch
                 const responses = await Promise.all(promises);
 
+
                 // Estraggo solo il campo "car" da ogni risposta
                 const fullCars = responses.map(res => res.car);
+
 
                 // Aggiorno lo stato con i dati completi
                 setDetailedCars(fullCars);
 
             } catch (error) {
 
-                console.error(error);
                 setError(error);
 
             }
@@ -66,7 +69,7 @@ function useCompareDetails(carsToCompare) {
 
     return {
         detailedCars,
-        error,
+        error
     };
 
 }

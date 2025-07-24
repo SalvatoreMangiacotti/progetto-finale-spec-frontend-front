@@ -14,10 +14,13 @@ const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
 
+    // gestione lista auto
     const carsData = useCarsFetch();
 
+    // aggiunta e rimozione auto dal comparatore
     const carsCompareActions = useCarsCompare();
 
+    // aggiunta e rimozione auto dai preferiti
     const favoritesLogic = useFavorites();
 
 

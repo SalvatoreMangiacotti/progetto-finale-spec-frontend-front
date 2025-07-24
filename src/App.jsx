@@ -32,12 +32,16 @@ function App() {
 
           <Route element={<DefaultLayout />}>
 
+            {/* Home */}
             <Route path="/" element={<Home />} />
 
+            {/* Pagina di dettaglio */}
             <Route path="/cars/:id" element={<CarDetails />} />
 
+            {/* Pagina di comparazione */}
             <Route path="/compare" element={<ComparePage />} />
 
+            {/* Preferiti */}
             <Route path="/favorites" element={<FavoritesPage />} />
 
           </Route>

@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 
 
 
-// Funzione di debounce
+// Definizione funzione di debounce
 function debounce(callback, delay) {
 
     let timer;
@@ -38,7 +38,7 @@ function useCarsFilter(carsList) {
 
 
 
-    // Funzione con debounce
+    // Crea una funzione con debounce
     const delayedSearch = useCallback(
         debounce((value) => {
             setDebouncedSearch(value);
@@ -47,20 +47,21 @@ function useCarsFilter(carsList) {
     );
 
 
-    // Triggera la ricerca ritardata
+    // Ogni volta che search cambia, esegue la funzione
     useEffect(() => {
         delayedSearch(search);
     }, [search, delayedSearch]);
 
 
 
-    // Applica filtri e ordinamento
+    // Lista filtrata e ordinata in base alle scelte dell'utente
     const filteredCars = useMemo(() => {
 
         let filtered = carsList;
 
 
-        // Filtro per testo nel titolo
+        // Filtro testuale
+        // SE l'utente digita:
         if (debouncedSearch) {
             filtered = filtered.filter(car =>
                 car.title.toLowerCase().includes(debouncedSearch.toLowerCase())
@@ -69,6 +70,7 @@ function useCarsFilter(carsList) {
 
 
         // Filtro per categoria
+        // SE l'utente seleziona una categoria:
         if (categoryFilter) {
             filtered = filtered.filter(car =>
                 car.category === categoryFilter
@@ -77,8 +79,10 @@ function useCarsFilter(carsList) {
 
 
         // Ordinamento A-Z o Z-A
+        // SE l'utente seleziona un ordinamento:
         if (sortOrder) {
 
+            // sortOrder => title-asc / category-desc
             const [sortBy, order] = sortOrder.split("-");
 
             filtered.sort((a, b) => {
@@ -124,7 +128,7 @@ function useCarsFilter(carsList) {
         categoryFilter,
         setCategoryFilter,
         sortOrder,
-        setSortOrder,
+        setSortOrder
     };
 
 }

@@ -18,6 +18,7 @@ import '../styles/Home.css';
 
 function Home() {
 
+    // Lista di auto dal globalContext
     const { carsList, error } = useGlobalContext();
 
     const {
@@ -36,6 +37,7 @@ function Home() {
         <div className='main-container'>
 
             <div className='sidebar'>
+
                 <SearchFilter
                     search={search}
                     setSearch={setSearch}
@@ -52,8 +54,10 @@ function Home() {
                     setSortOrder={setSortOrder}
                 />
 
+                {/* Auto selezionate per il confronto */}
                 <CompareSidebar />
             </div>
+
 
             <div className='cars-list'>
                 <CarsList
